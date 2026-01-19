@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white dark:bg-[#1a1a2e] shadow-sm">
+      <header className="sticky top-0 z-50 bg-white shadow-sm">
         {/* Top bar */}
         <div className="bg-[#1a1a2e] text-white text-sm py-2 hidden md:block">
           <div className="container flex justify-between items-center">
@@ -40,7 +40,7 @@ export default function Header() {
           <div className="flex items-center justify-between gap-4">
             {/* Mobile menu button */}
             <button
-              className="lg:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
               onClick={() => setMobileMenuOpen(true)}
               aria-label="메뉴 열기"
             >
@@ -67,7 +67,7 @@ export default function Header() {
                 <input
                   type="text"
                   placeholder="검색어를 입력하세요"
-                  className="w-full px-4 py-3 pl-12 bg-gray-100 dark:bg-gray-800 rounded-full border-none focus:ring-2 focus:ring-[#e94560] focus:outline-none transition-all"
+                  className="w-full px-4 py-3 pl-12 bg-gray-100 rounded-full border-none focus:ring-2 focus:ring-[#e94560] focus:outline-none transition-all"
                 />
                 <svg
                   className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
@@ -84,7 +84,7 @@ export default function Header() {
             <div className="flex items-center gap-2 md:gap-4">
               {/* Mobile search toggle */}
               <button
-                className="md:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
                 onClick={() => setSearchOpen(!searchOpen)}
                 aria-label="검색"
               >
@@ -96,7 +96,7 @@ export default function Header() {
               {/* Wishlist */}
               <Link
                 href="/wishlist"
-                className="hidden sm:flex p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors relative"
+                className="hidden sm:flex p-2 hover:bg-gray-100 rounded-lg transition-colors relative"
                 aria-label="위시리스트"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +108,7 @@ export default function Header() {
               {/* Cart */}
               <Link
                 href="/cart"
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors relative"
+                className="p-2 hover:bg-gray-100 rounded-lg transition-colors relative"
                 aria-label="장바구니"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,7 +120,7 @@ export default function Header() {
               {/* User - Desktop only */}
               <Link
                 href="/mypage"
-                className="hidden lg:flex p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                className="hidden lg:flex p-2 hover:bg-gray-100 rounded-lg transition-colors"
                 aria-label="마이페이지"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,7 +136,7 @@ export default function Header() {
               <input
                 type="text"
                 placeholder="검색어를 입력하세요"
-                className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-800 rounded-full border-none focus:ring-2 focus:ring-[#e94560] focus:outline-none"
+                className="w-full px-4 py-3 bg-gray-100 rounded-full border-none focus:ring-2 focus:ring-[#e94560] focus:outline-none"
                 autoFocus
               />
             </div>
@@ -144,7 +144,7 @@ export default function Header() {
         </div>
 
         {/* Category navigation - Desktop */}
-        <nav className="hidden lg:block border-t border-gray-200 dark:border-gray-700">
+        <nav className="hidden lg:block border-t border-gray-200">
           <div className="container">
             <ul className="flex items-center justify-center gap-1">
               {categories.map((category) => (
@@ -161,12 +161,12 @@ export default function Header() {
                     {category.name}
                   </Link>
                   {activeCategory === category.name && category.subcategories && (
-                    <div className="absolute top-full left-0 bg-white dark:bg-[#1a1a2e] shadow-lg rounded-b-lg py-2 min-w-[160px] animate-fade-in z-50">
+                    <div className="absolute top-full left-0 bg-white shadow-lg rounded-b-lg py-2 min-w-[160px] animate-fade-in z-50">
                       {category.subcategories.map((sub) => (
                         <Link
                           key={sub}
                           href={`${category.href}/${sub.toLowerCase()}`}
-                          className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-[#e94560] transition-colors"
+                          className="block px-4 py-2 hover:bg-gray-100 hover:text-[#e94560] transition-colors"
                         >
                           {sub}
                         </Link>
@@ -196,11 +196,11 @@ export default function Header() {
 
       {/* Mobile menu */}
       <div
-        className={`fixed top-0 left-0 w-[300px] h-full bg-white dark:bg-[#1a1a2e] z-50 transform transition-transform duration-300 lg:hidden ${
+        className={`fixed top-0 left-0 w-[300px] h-full bg-white z-50 transform transition-transform duration-300 lg:hidden ${
           mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+        <div className="p-4 border-b border-gray-200 flex items-center justify-between">
           <Image
             src="http://gundamfactory.godohosting.com/new/main_slide/logo.jpg"
             alt="하비팩토리"
@@ -211,7 +211,7 @@ export default function Header() {
           />
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             aria-label="메뉴 닫기"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -220,7 +220,7 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="p-4 border-b border-gray-200 dark:border-gray-700">
+        <div className="p-4 border-b border-gray-200">
           <div className="flex gap-2">
             <Link href="/login" className="flex-1 btn btn-primary text-sm">로그인</Link>
             <Link href="/register" className="flex-1 btn btn-outline text-sm">회원가입</Link>
@@ -233,7 +233,7 @@ export default function Header() {
               <li key={category.name}>
                 <Link
                   href={category.href}
-                  className="block px-4 py-3 font-medium hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  className="block px-4 py-3 font-medium hover:bg-gray-100 rounded-lg transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {category.name}
@@ -243,7 +243,7 @@ export default function Header() {
             <li>
               <Link
                 href="/sale"
-                className="block px-4 py-3 font-medium text-[#e94560] hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                className="block px-4 py-3 font-medium text-[#e94560] hover:bg-gray-100 rounded-lg transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 SALE

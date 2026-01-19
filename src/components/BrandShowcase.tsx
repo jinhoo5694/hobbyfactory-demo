@@ -70,7 +70,7 @@ const franchises = [
 
 export default function BrandShowcase() {
   return (
-    <section className="section bg-gray-50 dark:bg-gray-900/50">
+    <section className="section bg-gray-50">
       <div className="container">
         {/* Franchise Banners */}
         <div className="mb-12">
@@ -103,7 +103,7 @@ export default function BrandShowcase() {
               <Link
                 key={brand.name}
                 href={brand.href}
-                className="bg-white dark:bg-gray-800 rounded-xl p-4 flex items-center justify-center aspect-[3/2] hover:shadow-lg transition-all group"
+                className="bg-white rounded-xl p-4 flex items-center justify-center aspect-[3/2] hover:shadow-lg transition-all group"
               >
                 <Image
                   src={`http://www.hobbyfactory.kr${brand.logo}`}

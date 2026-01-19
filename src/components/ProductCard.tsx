@@ -37,11 +37,11 @@ export default function ProductCard({
             alt={name}
             width={300}
             height={300}
-            className="w-full h-full object-contain p-4"
+            className="w-full h-full object-contain p-2 md:p-4"
             unoptimized
           />
           {badge && (
-            <span className={`badge badge-${badge} absolute top-3 left-3`}>
+            <span className={`badge badge-${badge} absolute top-2 left-2 md:top-3 md:left-3 text-[10px] md:text-xs`}>
               {badge === 'new' && 'NEW'}
               {badge === 'sale' && `${discount}%`}
               {badge === 'hot' && 'HOT'}
@@ -50,8 +50,8 @@ export default function ProductCard({
         </div>
       </Link>
 
-      {/* Quick actions */}
-      <div className="product-actions">
+      {/* Quick actions - Hidden on mobile for cleaner look */}
+      <div className="product-actions hidden sm:flex">
         <button
           className="action-btn"
           onClick={(e) => {
@@ -80,31 +80,31 @@ export default function ProductCard({
       </div>
 
       {/* Product info */}
-      <div className="p-4">
+      <div className="p-3 md:p-4">
         {category && (
-          <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">{category}</p>
+          <p className="text-[10px] md:text-xs text-gray-500 mb-1 truncate">{category}</p>
         )}
         <Link href={`/product/${id}`}>
-          <h3 className="font-medium text-sm mb-2 line-clamp-2 group-hover:text-[#e94560] transition-colors min-h-[40px]">
+          <h3 className="font-medium text-xs md:text-sm mb-1.5 md:mb-2 line-clamp-2 group-hover:text-[#e94560] transition-colors min-h-[32px] md:min-h-[40px]">
             {name}
           </h3>
         </Link>
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="price text-lg">{formatPrice(price)}원</span>
+        <div className="flex items-center gap-1.5 md:gap-2 flex-wrap">
+          <span className="text-sm md:text-lg font-bold text-[#e94560]">{formatPrice(price)}원</span>
           {originalPrice && (
-            <span className="price-original">{formatPrice(originalPrice)}원</span>
+            <span className="text-[10px] md:text-sm text-gray-400 line-through">{formatPrice(originalPrice)}원</span>
           )}
         </div>
 
         {/* Add to cart button */}
         <button
-          className="w-full mt-3 py-2 bg-gray-100 dark:bg-gray-800 hover:bg-[#e94560] hover:text-white rounded-lg text-sm font-medium transition-all duration-200"
+          className="w-full mt-2 md:mt-3 py-1.5 md:py-2 bg-gray-100 hover:bg-[#e94560] hover:text-white rounded-lg text-xs md:text-sm font-medium transition-all duration-200 active:scale-95"
           onClick={(e) => {
             e.preventDefault();
             // Add to cart logic
           }}
         >
-          장바구니 담기
+          장바구니
         </button>
       </div>
     </div>

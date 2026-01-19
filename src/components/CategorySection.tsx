@@ -85,7 +85,7 @@ export default function CategorySection() {
                 <h3 className="font-medium group-hover:text-[#e94560] transition-colors">
                   {category.name}
                 </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-gray-500">
                   {category.itemCount.toLocaleString()}개 상품
                 </p>
               </div>

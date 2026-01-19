@@ -25,18 +25,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f0f1a;
-    --foreground: #f1f1f1;
-    --primary: #e94560;
-    --secondary: #1a1a2e;
-    --accent: #16213e;
-    --border: #2d2d44;
-    --card: #1a1a2e;
-    --card-hover: #252540;
-  }
-}
+/* Light theme only - dark mode disabled */
 
 * {
   box-sizing: border-box;
