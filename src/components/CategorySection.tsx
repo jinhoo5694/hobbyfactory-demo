@@ -8,41 +8,42 @@ interface Category {
   itemCount: number;
 }
 
+// Using product images from hobbyfactory.kr for categories
 const categories: Category[] = [
   {
     name: '건담',
-    image: 'http://gundamfactory.godohosting.com/new/main_slide/circle_1.jpg',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/009007000154.jpg', // RG 아스트레이
     href: '/category/gundam',
     itemCount: 1250,
   },
   {
     name: '피규어',
-    image: 'http://gundamfactory.godohosting.com/new/main_slide/circle_2.jpg',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/005009000025.jpg', // 넨도로이드
     href: '/category/figure',
     itemCount: 890,
   },
   {
     name: '캐릭터 프라모델',
-    image: 'http://gundamfactory.godohosting.com/new/main_slide/circle_4.jpg',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/009001000766.jpg', // MGSD 발바토스
     href: '/category/character',
     itemCount: 456,
   },
   {
-    name: '초합금',
-    image: 'http://gundamfactory.godohosting.com/new/main_slide/circle_5.jpg',
-    href: '/category/chogokin',
+    name: 'PG',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/009015000044.jpg', // PG 더블오
+    href: '/category/pg',
     itemCount: 234,
   },
   {
-    name: '도색용품',
-    image: 'http://gundamfactory.godohosting.com/new/main_slide/circle_6.jpg',
-    href: '/category/painting',
+    name: 'MG',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/009001000702.jpg', // MG 뉴건담
+    href: '/category/mg',
     itemCount: 567,
   },
   {
-    name: '조립용품',
-    image: 'http://gundamfactory.godohosting.com/new/main_slide/section_3.jpg',
-    href: '/category/tools',
+    name: 'HG',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/009006001036.jpg', // HG 사이코자쿠
+    href: '/category/hg',
     itemCount: 345,
   },
 ];

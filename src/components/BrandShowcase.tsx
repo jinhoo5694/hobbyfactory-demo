@@ -40,31 +40,32 @@ const brands: Brand[] = [
   },
 ];
 
+// Using product images from hobbyfactory.kr for franchises
 const franchises = [
   {
-    name: 'Marvel',
-    image: 'http://gundamfactory.godohosting.com/new//main_slide/marvel.jpg',
-    href: '/franchise/marvel',
+    name: 'RG 시리즈',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/009007000198.jpg', // RG 윙건담
+    href: '/category/gundam/rg',
   },
   {
-    name: 'DC',
-    image: 'http://gundamfactory.godohosting.com/new//main_slide/dc.jpg',
-    href: '/franchise/dc',
+    name: 'MG 시리즈',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/009001000499.jpg', // MG 헤비암즈
+    href: '/category/gundam/mg',
   },
   {
-    name: 'Star Wars',
-    image: 'http://gundamfactory.godohosting.com/new//main_slide/starwars.jpg',
-    href: '/franchise/starwars',
+    name: 'PG 시리즈',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/009015000044.jpg', // PG 더블오
+    href: '/category/gundam/pg',
   },
   {
-    name: 'Spider-Man',
-    image: 'http://gundamfactory.godohosting.com/new//main_slide/spider.jpg',
-    href: '/franchise/spiderman',
+    name: '넨도로이드',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/005009000024.jpg', // 넨도로이드
+    href: '/category/figure/nendoroid',
   },
   {
-    name: 'Deadpool',
-    image: 'http://gundamfactory.godohosting.com/new//main_slide/deadpool.jpg',
-    href: '/franchise/deadpool',
+    name: '스케일 피규어',
+    image: 'http://www.hobbyfactory.kr/shopimages/sunwootnd2/005010000006.jpg', // 블루아카이브
+    href: '/category/figure/scale',
   },
 ];
 
@@ -72,9 +73,9 @@ export default function BrandShowcase() {
   return (
     <section className="section bg-gray-50">
       <div className="container">
-        {/* Franchise Banners */}
+        {/* Popular Series Banners */}
         <div className="mb-12">
-          <h2 className="section-title mb-8">인기 프랜차이즈</h2>
+          <h2 className="section-title mb-8">인기 시리즈</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
             {franchises.map((franchise) => (
               <Link
