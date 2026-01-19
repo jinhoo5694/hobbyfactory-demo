@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1a1a2e] text-white mt-16">
+    <footer className="bg-[#1a1a2e] text-white">
       {/* Newsletter section */}
-      <div className="border-b border-gray-700 bg-gradient-to-r from-[#1a1a2e] to-[#252545]">
-        <div className="container pt-16 pb-12 md:pt-20 md:pb-16">
-          <div className="flex flex-col items-center text-center gap-6 md:gap-8">
+      <div className="border-b border-gray-700 bg-gradient-to-r from-[#1a1a2e] to-[#16213e]">
+        <div className="container py-[80px]">
+          <div className="flex flex-col items-center text-center gap-8">
             <div>
               <h3 className="text-2xl md:text-3xl font-bold mb-3">뉴스레터 구독</h3>
               <p className="text-gray-400 text-sm md:text-base max-w-md">
@@ -29,18 +29,13 @@ export default function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="container py-8 md:py-12">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {/* Company info - spans 2 cols on mobile */}
-          <div className="col-span-2 md:col-span-1">
-            <Image
-              src="http://gundamfactory.godohosting.com/new/main_slide/logo.jpg"
-              alt="하비팩토리"
-              width={150}
-              height={40}
-              className="h-8 md:h-10 w-auto mb-3 md:mb-4 brightness-0 invert"
-              unoptimized
-            />
+      <div className="container py-[64px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Company info */}
+          <div className="py-4 sm:py-0">
+            <div className="h-8 md:h-10 mb-3 md:mb-4 flex items-center">
+              <span className="text-xl md:text-2xl font-bold text-white">하비팩토리</span>
+            </div>
             <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4">
               건담, 프라모델, 피규어의 강자<br />
               당신의 취미생활을 위한 모든 것
@@ -77,7 +72,7 @@ export default function Footer() {
           </div>
 
           {/* Quick links */}
-          <div className="hidden md:block">
+          <div className="py-4 sm:py-0">
             <h4 className="font-bold mb-3 md:mb-4 text-sm md:text-base">쇼핑안내</h4>
             <ul className="space-y-1.5 md:space-y-2 text-gray-400 text-xs md:text-sm">
               <li><Link href="/guide/order" className="hover:text-white transition-colors">주문/결제 안내</Link></li>
@@ -89,7 +84,7 @@ export default function Footer() {
           </div>
 
           {/* Categories */}
-          <div className="hidden md:block">
+          <div className="py-4 sm:py-0">
             <h4 className="font-bold mb-3 md:mb-4 text-sm md:text-base">카테고리</h4>
             <ul className="space-y-1.5 md:space-y-2 text-gray-400 text-xs md:text-sm">
               <li><Link href="/category/gundam" className="hover:text-white transition-colors">건담</Link></li>
@@ -100,16 +95,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Customer service - spans 2 cols on mobile */}
-          <div className="col-span-2 md:col-span-1">
+          {/* Customer service */}
+          <div className="py-4 sm:py-0">
             <h4 className="font-bold mb-3 md:mb-4 text-sm md:text-base">고객센터</h4>
             <div className="text-2xl md:text-3xl font-bold text-[#e94560] mb-1 md:mb-2">1588-0000</div>
             <p className="text-gray-400 text-xs md:text-sm mb-3 md:mb-4">
               평일 10:00 - 18:00 | 토/일/공휴일 휴무
             </p>
-            <div className="flex sm:flex-col gap-2">
-              <Link href="/board/qna" className="flex-1 sm:flex-none text-center px-4 py-2 border border-gray-600 text-gray-300 hover:bg-gray-700 rounded-lg text-xs md:text-sm transition-colors">1:1 문의</Link>
-              <Link href="/board/faq" className="flex-1 sm:flex-none text-center px-4 py-2 bg-gray-700 text-white hover:bg-gray-600 rounded-lg text-xs md:text-sm transition-colors">FAQ</Link>
+            <div className="flex flex-col gap-2">
+              <Link href="/board/qna" className="text-center px-4 py-2 border border-gray-600 text-gray-300 hover:bg-gray-700 rounded-lg text-xs md:text-sm transition-colors">1:1 문의</Link>
+              <Link href="/board/faq" className="text-center px-4 py-2 bg-gray-700 text-white hover:bg-gray-600 rounded-lg text-xs md:text-sm transition-colors">FAQ</Link>
             </div>
           </div>
         </div>
