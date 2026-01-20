@@ -52,12 +52,12 @@ export default function Header() {
             {/* Logo */}
             <Link href="/" className="flex-shrink-0">
               <Image
-                src="http://gundamfactory.godohosting.com/new/main_slide/logo.jpg"
+                src="/logo.jpg"
                 alt="하비팩토리"
                 width={180}
                 height={50}
                 className="h-10 md:h-12 w-auto"
-                unoptimized
+                priority
               />
             </Link>
 
@@ -202,12 +202,11 @@ export default function Header() {
       >
         <div className="p-4 border-b border-gray-200 flex items-center justify-between">
           <Image
-            src="http://gundamfactory.godohosting.com/new/main_slide/logo.jpg"
+            src="/logo.jpg"
             alt="하비팩토리"
             width={140}
             height={40}
             className="h-8 w-auto"
-            unoptimized
           />
           <button
             onClick={() => setMobileMenuOpen(false)}
