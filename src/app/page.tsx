@@ -3,6 +3,7 @@ import CategorySection from '@/components/CategorySection';
 import ProductCard from '@/components/ProductCard';
 import PromoSection from '@/components/PromoSection';
 import BrandShowcase from '@/components/BrandShowcase';
+import NoticeSection from '@/components/NoticeSection';
 import Link from 'next/link';
 
 // Sample product data using actual images and names from hobbyfactory.kr
@@ -172,6 +173,9 @@ export default function Home() {
 
       {/* Brand Showcase */}
       <BrandShowcase />
+
+      {/* Notice Section */}
+      <NoticeSection />
 
       {/* Figure Products */}
       <section className="py-8 md:py-12">

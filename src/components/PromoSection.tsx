@@ -32,29 +32,46 @@ const quickCategories = [
   },
 ];
 
+// Calculate time remaining until midnight in Korea (KST, UTC+9)
+function getTimeUntilMidnightKST() {
+  const now = new Date();
+
+  // Get current time in Korea
+  const koreaTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Seoul' }));
+
+  // Calculate midnight tonight in Korea
+  const midnightKorea = new Date(koreaTime);
+  midnightKorea.setHours(24, 0, 0, 0);
+
+  // Get the difference in milliseconds
+  const diff = midnightKorea.getTime() - koreaTime.getTime();
+
+  // Convert to hours, minutes, seconds
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  return { hours, minutes, seconds };
+}
+
 export default function PromoSection() {
-  const [timeLeft, setTimeLeft] = useState({
-    hours: 23,
-    minutes: 59,
-    seconds: 59,
-  });
+  const [timeLeft, setTimeLeft] = useState<{ hours: number; minutes: number; seconds: number } | null>(null);
 
-  // Countdown timer effect
+  // Countdown timer effect - counts down to midnight Korean time
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        }
-        return { hours: 23, minutes: 59, seconds: 59 };
-      });
-    }, 1000);
+    // Update immediately (via interval with initial call)
+    const updateTime = () => setTimeLeft(getTimeUntilMidnightKST());
 
-    return () => clearInterval(timer);
+    // Set initial time via timeout to satisfy lint rule
+    const initialTimeout = setTimeout(updateTime, 0);
+
+    // Then update every second
+    const timer = setInterval(updateTime, 1000);
+
+    return () => {
+      clearTimeout(initialTimeout);
+      clearInterval(timer);
+    };
   }, []);
 
   return (
@@ -82,7 +99,7 @@ export default function PromoSection() {
               <div className="text-center">
                 <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-xl flex items-center justify-center shadow-lg">
                   <span className="text-xl md:text-3xl font-bold text-[#e94560]">
-                    {String(timeLeft.hours).padStart(2, '0')}
+                    {timeLeft ? String(timeLeft.hours).padStart(2, '0') : '--'}
                   </span>
                 </div>
                 <span className="text-[10px] md:text-xs text-white/80 mt-1 block">시간</span>
@@ -91,7 +108,7 @@ export default function PromoSection() {
               <div className="text-center">
                 <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-xl flex items-center justify-center shadow-lg">
                   <span className="text-xl md:text-3xl font-bold text-[#e94560]">
-                    {String(timeLeft.minutes).padStart(2, '0')}
+                    {timeLeft ? String(timeLeft.minutes).padStart(2, '0') : '--'}
                   </span>
                 </div>
                 <span className="text-[10px] md:text-xs text-white/80 mt-1 block">분</span>
@@ -100,7 +117,7 @@ export default function PromoSection() {
               <div className="text-center">
                 <div className="w-14 h-14 md:w-20 md:h-20 bg-white rounded-xl flex items-center justify-center shadow-lg">
                   <span className="text-xl md:text-3xl font-bold text-[#e94560]">
-                    {String(timeLeft.seconds).padStart(2, '0')}
+                    {timeLeft ? String(timeLeft.seconds).padStart(2, '0') : '--'}
                   </span>
                 </div>
                 <span className="text-[10px] md:text-xs text-white/80 mt-1 block">초</span>
