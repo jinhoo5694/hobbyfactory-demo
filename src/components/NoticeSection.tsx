@@ -3,8 +3,15 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+interface NoticeItem {
+  id: number;
+  title: string;
+  date: string;
+  isNotice?: boolean;
+}
+
 // Sample notice data (공지사항)
-const notices = [
+const notices: NoticeItem[] = [
   { id: 1, title: '운영 방침 변경으로 인한 합배송 안내', date: '2025.01.15', isNotice: true },
   { id: 2, title: '[신년 이벤트] 피규어 전상품 10% 할인', date: '2025.01.10' },
   { id: 3, title: '[신년 이벤트] 프라모델 상품 특가전', date: '2025.01.10' },
@@ -13,7 +20,7 @@ const notices = [
 ];
 
 // Sample incoming stock data (입고예정)
-const incomingStock = [
+const incomingStock: NoticeItem[] = [
   { id: 1, title: '1월 20일 코토부키야/타카라토미 입고 안내', date: '2025.01.18' },
   { id: 2, title: '1월 15일 반다이 프라모델 입고 안내', date: '2025.01.14' },
   { id: 3, title: '1월 10일 코토부키야/굿스마일 제품 입고', date: '2025.01.09' },
@@ -82,7 +89,7 @@ export default function NoticeSection() {
                     className="flex items-center justify-between gap-4 py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      {'isNotice' in item && item.isNotice && (
+                      {item.isNotice && (
                         <span className="shrink-0 px-2 py-0.5 text-xs font-bold bg-[var(--primary)] text-white rounded">
                           공지
                         </span>
